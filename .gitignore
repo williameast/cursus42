@@ -1,2 +1,3 @@
 /archive/ex06/*.out
 *.o
+/libft/*.a
