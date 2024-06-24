@@ -6,7 +6,7 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/25 14:07:35 by weast             #+#    #+#             */
-/*   Updated: 2024/04/29 15:39:41 by weast            ###   ########.fr       */
+/*   Updated: 2024/06/24 11:52:42 by weast            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return(sub);
 	}
 
-#include <stdio.h>
-int main(void) {
-   char *str = "this is a test";
-   printf("%s\n", ft_substr(str, 0, 5));
-    return 0;
-}
+/* #include <stdio.h> */
+/* int main(void) { */
+/*    char *str = "this is a test"; */
+/*    printf("%s\n", ft_substr(str, 0, 5)); */
+/*     return 0; */
+/* } */
