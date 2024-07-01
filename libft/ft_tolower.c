@@ -6,14 +6,14 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 17:41:07 by weast             #+#    #+#             */
-/*   Updated: 2024/06/30 18:33:09 by weast            ###   ########.fr       */
+/*   Updated: 2024/07/01 12:27:22 by weast            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	ft_tolower(int c)
+int	ft_tolower(int c)
 {
 	if (65 <= c && c <= 90)
 		return (c + 32);
 	else
-		return ((unsigned int)c);
+		return (c);
 }
