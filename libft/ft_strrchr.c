@@ -6,7 +6,7 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 13:34:59 by weast             #+#    #+#             */
-/*   Updated: 2024/06/30 16:44:20 by weast            ###   ########.fr       */
+/*   Updated: 2024/07/01 12:33:01 by weast            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,16 @@
 
 char	*ft_strrchr(const char *str, int c)
 {
-	int		i;
-	char	*res;
-	char	cc;
+	char	*temp;
 
-	cc = (char) c;
-	res = NULL;
-	i = 0;
-	while (str[i])
+	temp = NULL;
+	while (*str)
 	{
-		if (str[i] == cc)
-			res = (char *) &str[i];
-		i++;
+		if (*str == (char)c)
+			temp = (char *)str;
+		str++;
 	}
-	if (str[i] == c)
-		res = (char *) &str[i];
-	return (res);
+	if (*str == (char)c)
+		return ((char *)str);
+	return (temp);
 }

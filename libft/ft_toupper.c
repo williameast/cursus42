@@ -6,15 +6,13 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 17:41:07 by weast             #+#    #+#             */
-/*   Updated: 2024/07/01 12:27:09 by weast            ###   ########.fr       */
+/*   Updated: 2024/07/01 12:39:46 by weast            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_toupper(int c)
 {
-	if (97 <= c && c <= 122)
+	if (c >= 'a' && c <= 'z')
 		return (c - 32);
-	else
-		return (c);
+	return (c);
 }
-
