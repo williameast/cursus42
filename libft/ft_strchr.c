@@ -6,9 +6,10 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 13:34:59 by weast             #+#    #+#             */
-/*   Updated: 2024/06/24 11:57:12 by weast            ###   ########.fr       */
+/*   Updated: 2024/07/01 11:07:32 by weast            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
 char	*ft_strchr(const char *str, int c)
 {
@@ -16,10 +17,5 @@ char	*ft_strchr(const char *str, int c)
 		str++;
 	if (*str == c)
 		return ((char *)str);
-	return (0);
-}
-#include <stdio.h>
-int main(void) {
-	printf("%s\n", ft_strchr("this is a test", 'i'));
-    return 0;
+	return ((char *) NULL);
 }

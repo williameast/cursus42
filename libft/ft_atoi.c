@@ -6,32 +6,57 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:30:26 by weast             #+#    #+#             */
-/*   Updated: 2024/04/25 13:05:49 by weast            ###   ########.fr       */
+/*   Updated: 2024/06/30 18:10:19 by weast            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(char *str)
-{
-	int	i;
-	int	res;
-	int	sign;
+/* int	ft_atoi(char *str) */
+/* { */
+/* 	int	i; */
+/* 	int	res; */
+/* 	int	sign; */
 
-	i = 0;
+/* 	i = 0; */
+/* 	res = 0; */
+/* 	sign = 1; */
+/* 	while (str[i] == ' ' || (9 <= str[i] && str[i] <= 13)) */
+/* 		i++; */
+/* 	while (str[i] == '-' || str[i] == '+') */
+/* 	{ */
+/* 		if (str[i] == '-') */
+/* 			sign *= -1; */
+/* 		i++; */
+/* 	} */
+/* 	while ('0' <= str[i] && str[i] <= '9') */
+/* 	{ */
+/* 		res *= 10; */
+/* 		res += str[i] - '0'; */
+/* 		i++; */
+/* 	} */
+/* 	return (res * sign); */
+/* } */
+int	ft_atoi(const char *str)
+{
+	long			res;
+	long			sign;
+	unsigned int	i;
+
 	res = 0;
 	sign = 1;
-	while (str[i] == ' ' || (9 <= str[i] && str[i] <= 13))
+	i = 0;
+	while (str[i] == ' ' || str[i] == '\t' || str[i] == '\n'
+		|| str[i] == '\r' || str[i] == '\v' || str[i] == '\f')
 		i++;
-	while (str[i] == '-' || str[i] == '+')
+	if (str[i] == '-' || str[i] == '+')
 	{
 		if (str[i] == '-')
-			sign *= -1;
+			sign = -1;
 		i++;
 	}
-	while ('0' <= str[i] && str[i] <= '9')
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		res *= 10;
-		res += str[i] - '0';
+		res = res * 10 + str[i] - '0';
 		i++;
 	}
-	return (res * sign);
+	return ((int)(res * sign));
 }

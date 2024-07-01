@@ -6,11 +6,11 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 16:23:30 by weast             #+#    #+#             */
-/*   Updated: 2024/04/25 13:13:39 by weast            ###   ########.fr       */
+/*   Updated: 2024/06/30 17:34:24 by weast            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isalpha(char c)
+int	ft_isalpha(int c)
 {
 	return (('A' <= c && c <= 'Z') || ('a' <= c && c <= 'z'));
 }

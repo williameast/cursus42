@@ -6,11 +6,11 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 17:41:07 by weast             #+#    #+#             */
-/*   Updated: 2024/04/23 18:37:34 by weast            ###   ########.fr       */
+/*   Updated: 2024/06/30 18:13:12 by weast            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	ft_toupper(char c)
+char	ft_toupper(int c)
 {
 	if (97 <= c && c <= 122)
 		return (c - 32);

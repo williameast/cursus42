@@ -6,7 +6,7 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/19 17:19:00 by weast             #+#    #+#             */
-/*   Updated: 2024/04/19 17:43:33 by weast            ###   ########.fr       */
+/*   Updated: 2024/06/30 16:46:43 by weast            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,5 @@ int	ft_strncmp(const char *str1, const char *str2, size_t n)
 		else
 			return (0);
 	}
-	return (str1[i] - str2[i]);
+	return ((unsigned char)str1[i] - (unsigned char)str2[i]);
 }

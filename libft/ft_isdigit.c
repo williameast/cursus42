@@ -6,11 +6,11 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 16:40:27 by weast             #+#    #+#             */
-/*   Updated: 2024/04/25 13:13:55 by weast            ###   ########.fr       */
+/*   Updated: 2024/06/30 17:33:20 by weast            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isdigit(char c)
+int	ft_isdigit(int c)
 {
 	return ('0' <= c && c <= '9');
 }
