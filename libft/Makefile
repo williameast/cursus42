@@ -1,6 +1,6 @@
 NAME = libft.a
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror
 AR = ar rcs
 RM = rm -f
@@ -14,33 +14,24 @@ FILES =	ft_atoi ft_bzero ft_calloc ft_isalpha ft_isalnum \
 		ft_putchar_fd ft_putstr_fd ft_putendl_fd ft_putnbr_fd
 
 
-# FILES_B = 	ft_lstnew \
-# 	  		ft_lstadd_front \
-# 	  		ft_lstsize \
-# 	  		ft_lstlast \
-# 	  		ft_lstadd_back \
-# 	  		ft_lstdelone \
-# 	  		ft_lstclear \
-# 	  		ft_ft \
-# 	  		lstiter_lstmap
+FILES_B = 	ft_lstnew ft_lstadd_front ft_lstsize
 
 SRCS_DIR = ./
 SRCS = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES)))
-# SRCS_B = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES_B)))
+SRCS_B = $(addprefix $(SRCS_DIR), $(addsuffix .c, $(FILES_B)))
 
 OBJS_DIR = ./
 OBJS = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES)))
-# OBJS_B = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES_B)))
+OBJS_B = $(addprefix $(OBJS_DIR), $(addsuffix .o, $(FILES_B)))
 
-
-.c.o: $(SRCS)
+.c.o:
 	$(CC) $(CFLAGS) -c -o $@ $<
 
 $(NAME): $(OBJS)
 	$(AR) $@ $^
 
-# bonus: $(OBJS_B)
-# 	$(AR) $(NAME) $^
+bonus: $(OBJS) $(OBJS_B)
+	$(AR) $(NAME) $^
 
 all: $(NAME)
 

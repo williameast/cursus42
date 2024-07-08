@@ -6,7 +6,7 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 17:42:19 by weast             #+#    #+#             */
-/*   Updated: 2024/06/28 16:29:12 by weast            ###   ########.fr       */
+/*   Updated: 2024/07/03 13:03:15 by weast            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -81,19 +81,19 @@ char	**ft_split(const char *s, char c)
 	return (arr);
 }
 
-/* #include <stdio.h> */
-/* int main(void) { */
-/* 	char *str = "   hello my name is "; */
-/* 	char **res = ft_split(str, ' '); */
-/* 	int i = 0; */
-/* 	if (res) { */
-/* 		while (res[i] != NULL) */
-/* 		{ */
-/* 			printf("%s\n", res[i]); */
-/* 			free(res[i]); */
-/* 			i++; */
-/* 		} */
-/* 		free(res); */
-/* 	} */
-/* 	return 0; */
-/* } */
+#include <stdio.h>
+int main(void) {
+	char *str = "   hello my name is ";
+	char **res = ft_split(str, ' ');
+	int i = 0;
+	if (res) {
+		while (res[i] != NULL)
+		{
+			printf("%s\n", res[i]);
+			free(res[i]);
+			i++;
+		}
+		free(res);
+	}
+	return 0;
+}

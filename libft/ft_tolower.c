@@ -6,7 +6,7 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/16 17:41:07 by weast             #+#    #+#             */
-/*   Updated: 2024/07/01 12:31:17 by weast            ###   ########.fr       */
+/*   Updated: 2024/07/03 15:05:08 by weast            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,4 +16,11 @@ int	ft_tolower(int c)
 		return (c + 32);
 	else
 		return (c);
+}
+
+#include <stdio.h>
+int main(void) {
+	printf("%c\n", ft_tolower('\200'));
+
+    return 0;
 }
