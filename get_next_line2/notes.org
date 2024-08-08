@@ -1,0 +1,36 @@
+#+title: Get next line notes
+
+
+* general overview
+Create a function that can read in new lines. a variable buffer reads in how
+many characters are read in per read. the buffer is read in chunks defined by
+BUFFER_SIZE.
+
+
+** create a buffer (static)
+**
+* Singly linked list
+
+A linked list stores collections of elements. each element consists of 2
+subelements: a data element and a link element. the data element stores useful
+information, the link element is a link to the next node.
+
+the first link is known as the HEAD. the last node is known to be last as the
+link points to NULL.
+
+
+
+* get_next_line.c
+
+what needs to be done:
+
+1. allocate memory the size of BUFFER_SIZE to read into.
+2. read allocated memory.
+3. search for a newline character
+   a. if you do not find one, back to 1. (but from the new starting point?)
+   b. if you do find one,
+
+
+1. allocate a memory buffer with size BUFFER_SIZE.
+2. read the file into this memory.
+3. if you do not
