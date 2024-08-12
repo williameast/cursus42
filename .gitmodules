@@ -1,0 +1,6 @@
+[submodule "ft_printf"]
+	path = ft_printf
+	url = ../core/ft_printf
+[submodule "get_next_line"]
+	path = get_next_line
+	url = ../core/get_next_line
