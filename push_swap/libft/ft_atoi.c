@@ -6,10 +6,12 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:30:26 by weast             #+#    #+#             */
-/*   Updated: 2024/07/03 12:48:15 by weast            ###   ########.fr       */
+/*   Updated: 2024/09/23 16:42:58 by weast            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
+#include <limits.h>
 /* int	ft_atoi(char *str) */
 /* { */
 /* 	int	i; */
@@ -35,6 +37,17 @@
 /* 	} */
 /* 	return (res * sign); */
 /* } */
+
+int	check_overflow(long res, int sign)
+{
+	if (sign == 1 && res > INT_MAX)
+		return 0;
+	else if (sign == -1 && -res < INT_MIN)
+		return 0;
+	else
+		return 1;
+}
+
 int	ft_atoi(const char *str)
 {
 	long			res;
@@ -55,8 +68,9 @@ int	ft_atoi(const char *str)
 	}
 	while (str[i] >= '0' && str[i] <= '9')
 	{
-		res = res * 10 + str[i] - '0';
-		i++;
+		res = res * 10 + str[i++] - '0';
+		if (!check_overflow(res, sign))
+			return (0);
 	}
 	return ((int)(res * sign));
 }

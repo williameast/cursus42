@@ -6,7 +6,7 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 12:57:10 by weast             #+#    #+#             */
-/*   Updated: 2024/09/23 14:56:24 by weast            ###   ########.fr       */
+/*   Updated: 2024/09/23 17:41:10 by weast            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -60,25 +60,46 @@ void	print_stack(t_node **head)
     }
 }
 
-int	is_number(char *input)
+int	check_for_dup_in_stack(t_node **head)
 {
+    t_node	*needle;
+    t_node	*haystack;
 
+    needle = *head;
+    while (needle != NULL)
+    {
+        haystack = needle->next;
+        while (haystack !=NULL)
+        {
+            if (needle->n == haystack->n)
+                return (1);
+            haystack = haystack->next;
+        }
+        needle = needle->next;
+        }
+    return (0);
 }
+
+#include <limits.h>
 
 int main(int argc, char *argv[])
 {
     int	i;
+    int	nb;
     i = 1;
     t_node	*stack_a;
+
     stack_a = NULL;
     while (i < argc)
     {
-
-        if (!ft_isdigit(ft_atoi(argv[i]) )
-
-        append_node(&stack_a, ft_atoi(argv[i]));
+        nb = ft_atoi(argv[i]);
+        if ((nb == 0 && argv[i][0] != '0') || nb < INT_MIN || nb > INT_MAX)
+            return 0;
+        append_node(&stack_a, nb);
         i++;
     }
+    if (check_for_dup_in_stack(&stack_a))
+        return (0);
     print_stack(&stack_a);
     return 0;
 }
