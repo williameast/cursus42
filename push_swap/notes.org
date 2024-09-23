@@ -1,0 +1,92 @@
+#+title: push_swap notes
+
+* task:
+you have two stacks, named ~a~ and ~b~. ~a~ is: unsorted, contains a random
+number of positive and negative ints, and contains no duplicates. ~b~ is empty.
+
+* stacks
+as either an array or a linked list, a stack is a structure of
+
+* legal moves
+Sort into ascending order all numbers into stack ~a~. following operations are
+at your disposal:
+
+** sa (swap a)
+swap first two elements at the top of stack a
+#+begin_quote
+STACK A
+1 \ > 2
+2 / > 1
+3     3
+4     4
+#+end_quote
+
+if a is empty, do nothing.
+** sb (swap b)
+swap first two elements at the top of stack b
+#+begin_quote
+STACK B
+1 \ > 2
+2 / > 1
+3     3
+4     4
+#+end_quote
+
+if a is empty, do nothing.
+
+** ss (swap a & b)
+do sa and sb
+
+** pa (push a)
+take first element at th top of b and put it at the top of a
+** pb (push b)
+take first element at th top of a and put it at the top of b
+** ra (rotate a)
+shift all elements of a by 1 (first becomes last.)
+#+begin_quote
+STACK A
+1 /   2
+2 /   3
+3 /   4
+4 /   1
+#+end_quote
+
+** rb (rotate b)
+shift all elements of b up by 1 (first becomes last.)
+#+begin_quote
+STACK B
+1 /   2
+2 /   3
+3 /   4
+4 /   1
+#+end_quote
+** rr (rotate both)
+rotate a and b at the same time.
+
+** rra (reverse rotate a)
+shift all elements of a down 1 (last becomes first.)
+#+begin_quote
+STACK A
+1 \   4
+2 \   1
+3 \   2
+4 \   3
+#+end_quote
+
+** rrb (reverse rotate b)
+shift all elements of b down 1 (last becomes first.)
+#+begin_quote
+STACK B
+1 \   4
+2 \   1
+3 \   2
+4 \   3
+#+end_quote
+
+** rrr (rra & rrb)
+* Housekeeping
+** input sanitisation:
+*** TODO check only ints are used
+*** TODO check against duplicates
+*** TODO check ints are under limit
+*** TODO handle case when input is a single argument in quotes.
