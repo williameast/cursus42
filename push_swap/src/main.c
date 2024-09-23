@@ -6,15 +6,20 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 12:57:10 by weast             #+#    #+#             */
-/*   Updated: 2024/09/23 12:57:12 by weast            ###   ########.fr       */
+/*   Updated: 2024/09/23 13:42:51 by weast            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
 #include <stdio.h>
-int main(void) {
 
-    char *value = "1234";
+int main(int argc, char *argv[]) {
 
-    printf("%i\n", ft_atoi(value));
+    int	i;
+    i = 1;
+    while (i < argc)
+    {
+        printf("%s\n", argv[i]);
+        i++;
+    }
     return 0;
 }
