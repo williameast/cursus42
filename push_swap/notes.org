@@ -93,5 +93,16 @@ CLOSED: [2024-09-23 Mon 17:41]
 *** DONE check ints are under limit
 CLOSED: [2024-09-23 Mon 16:44]
 *** TODO handle case when input is a single argument in quotes.
-** TODO implement linked lists for stacks
+** TODO handle minimum input edge cases (less than 3 numbers etc)
+** TODO implement operations assuming input is 3 minimum!
+*** DONE swap
+CLOSED: [2024-09-23 Mon 18:21]
+*** TODO push
+*** TODO rotate
+*** TODO reverse_rotate
+** TODO implement the double moves
+*** TODO rr
+*** TODO ss
+*** TODO pp
+*** TODO rrr
 ** TODO

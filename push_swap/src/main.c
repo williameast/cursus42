@@ -6,11 +6,12 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 12:57:10 by weast             #+#    #+#             */
-/*   Updated: 2024/09/23 17:43:16 by weast            ###   ########.fr       */
+/*   Updated: 2024/09/23 18:20:21 by weast            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
 #include <stdio.h>
+#include "movements.c"
 
 t_node	*generate_node(int n)
 {
@@ -98,6 +99,9 @@ int main(int argc, char *argv[])
     }
     if (check_for_dup_in_stack(&stack_a))
         return (0);
+    print_stack(&stack_a);
+    swap(stack_a, 'a');
+    ft_putchar_fd('\n', 0);
     print_stack(&stack_a);
     return 0;
 }
