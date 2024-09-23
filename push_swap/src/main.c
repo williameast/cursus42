@@ -6,7 +6,7 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 12:57:10 by weast             #+#    #+#             */
-/*   Updated: 2024/09/23 17:41:10 by weast            ###   ########.fr       */
+/*   Updated: 2024/09/23 17:43:16 by weast            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -80,8 +80,6 @@ int	check_for_dup_in_stack(t_node **head)
     return (0);
 }
 
-#include <limits.h>
-
 int main(int argc, char *argv[])
 {
     int	i;
@@ -93,7 +91,7 @@ int main(int argc, char *argv[])
     while (i < argc)
     {
         nb = ft_atoi(argv[i]);
-        if ((nb == 0 && argv[i][0] != '0') || nb < INT_MIN || nb > INT_MAX)
+        if ((nb == 0 && argv[i][0] != '0'))
             return 0;
         append_node(&stack_a, nb);
         i++;
