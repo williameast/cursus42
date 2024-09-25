@@ -6,7 +6,7 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 12:38:00 by weast             #+#    #+#             */
-/*   Updated: 2024/09/25 13:53:18 by weast            ###   ########.fr       */
+/*   Updated: 2024/09/25 16:05:31 by weast            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H_
@@ -18,6 +18,7 @@
 # include <stdlib.h>
 # include <stdbool.h>
 # include <unistd.h>
+# include <stdio.h>
 
 typedef struct s_node
 {
@@ -50,6 +51,11 @@ char	*swap_both(t_node **a, t_node **b);
 char	*rotate_both(t_node **a, t_node **b);
 char	*reverse_rotate_both(t_node **a, t_node **b);
 char	*push_both(t_node **a, t_node **b);
+
+/* Declarations from input_sanitisation.c */
+int	check_for_dup_in_stack(t_node **head);
+t_node	*get_int_from_str(char *str);
+t_node	*get_int_from_argv(int argc, char **argv);
 
 /* declarations end */
 
