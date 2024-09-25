@@ -1,13 +1,13 @@
-
 NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror -g
 LIBFT_DIR = libft
 LIBFT = ./libft/libft.a
 RM = rm -rf
-SRCS = main.c
+SRCS = main.c helpers.c movements.c list_mgmt.c double_moves.c
 SRC	= $(addprefix ./src/,$(SRCS))
 OBJ = $(SRC:.c=.o)
+
 
 all: $(LIBFT) $(NAME)
 	@echo "Generated all files."
@@ -15,12 +15,12 @@ all: $(LIBFT) $(NAME)
 $(LIBFT):
 	@make -s -C $(LIBFT_DIR)
 
-$(NAME): $(LIBFT) $(OBJ)
-	@$(CC) $(CFLAGS) $(OBJ) -o $(NAME) -L./$(LIBFT_DIR) -lft
+$(NAME): $(LIBFT) $(SRC)
+	@$(CC) $(CFLAGS) $(SRC) -o $(NAME) -L./$(LIBFT_DIR) -lft
 
 $(OBJ): $(SRC)
 	@$(CC) $(CFLAGS) -c $? -I./$(LIBFT_DIR)
-	@mv *.o src
+	@mv *.o obj
 
 clean:
 	@$(RM) src/*.o
@@ -53,7 +53,3 @@ test:
 	@echo "Instructions count: "
 	@./push_swap $(ARG) | wc -l
 
-
-
-
-$(NAME):
