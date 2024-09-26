@@ -6,7 +6,7 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 17:47:11 by weast             #+#    #+#             */
-/*   Updated: 2024/09/25 15:18:42 by weast            ###   ########.fr       */
+/*   Updated: 2024/09/26 21:02:55 by William          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ char	*swap(t_node **stack, char stack_name)
     temp = (*stack)->n;
     (*stack)->n = (*stack)->next->n;
     (*stack)->next->n = temp;
+    (*stack)->cost = (*stack)->next->cost;
+    (*stack)->next->cost = temp;
     if (stack_name == 'a')
         return("sa");
     else
@@ -43,6 +45,7 @@ char	*rotate(t_node **stack, char stack_name)
     last->next = first;
     first->next = NULL;
     *stack = second;
+    get_move_cost(stack);
     if (stack_name == 'a')
         return("ra");
     else
@@ -66,6 +69,7 @@ char	*reverse_rotate(t_node **stack, char stack_name)
     last->next = *stack;
     second_last->next = NULL;
     *stack = last;
+    get_move_cost(stack);
     if (stack_name == 'a')
         return("rra");
     else
@@ -82,6 +86,8 @@ char	*push(t_node **src_stack, t_node **dest_stack, char stack_name)
     *src_stack = first->next;
     first->next = *dest_stack;
     *dest_stack = first;
+    get_move_cost(src_stack);
+    get_move_cost(dest_stack);
     if (stack_name == 'a')
         return("pa");
     else
