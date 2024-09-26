@@ -6,7 +6,7 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 12:40:34 by weast             #+#    #+#             */
-/*   Updated: 2024/09/25 13:46:21 by weast            ###   ########.fr       */
+/*   Updated: 2024/09/26 12:28:11 by William          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -22,7 +22,7 @@ t_node	*generate_node(int n)
     return (new_node);
 }
 
-void append_node(t_node **head, int n)
+void	append_node(t_node **head, int n)
 {
     t_node	*current_node;
     t_node	*new_node;
@@ -41,3 +41,33 @@ void append_node(t_node **head, int n)
     }
 }
 
+int	list_len(t_node **head)
+{
+    t_node	*temp;
+    int	i;
+
+    temp = *head;
+    i = 0;
+    while (temp != NULL)
+    {
+        temp = temp->next;
+        i++;
+    }
+    return (i);
+}
+
+void	index_list(t_node **head)
+{
+    t_node *temp;
+    int	i;
+
+    i = 0;
+    temp = *head;
+
+    while (temp != NULL)
+    {
+        temp->index = i;
+        temp = temp->next;
+        i++;
+    }
+}
