@@ -113,3 +113,25 @@ CLOSED: [2024-09-25 Wed 15:37]
 *** DONE rrr
 CLOSED: [2024-09-25 Wed 15:37]
 ** TODO create a list of the moves predicted
+* how to calculate cost
+odd is easy, find the middle number as the half way point where rev rotate is
+more efficent than rotate.
+#+begin_quote
+number   cost
+1         1
+2         2
+3         3
+4         2
+5         1
+#+end_quote
+
+for even numbers:
+#+begin_quote
+number   cost
+1         1
+2         2
+3         3
+4         3
+5         2
+6         1
+#+end_quote
