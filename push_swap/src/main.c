@@ -6,10 +6,11 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 12:57:10 by weast             #+#    #+#             */
-/*   Updated: 2024/09/27 14:15:59 by William          ###   ########.fr       */
+/*   Updated: 2024/09/27 14:28:05 by William          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
+#include <stdio.h>
 
 void	handle_triplets(t_node **stack)
 {
@@ -68,6 +69,5 @@ int main(int argc, char *argv[])
 
     print_both(&a, &b);
     free_list(a);
-
     return 0;
 }
