@@ -6,7 +6,7 @@
 /*   By: William <weast@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 16:00:03 by William           #+#    #+#             */
-/*   Updated: 2024/09/27 12:24:44 by William          ###   ########.fr       */
+/*   Updated: 2024/09/27 14:07:03 by William          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,16 +21,22 @@ void	get_move_cost(t_node **head)
     temp = *head;
     len = list_len(&temp);
     i = 1;
-    index_list(&temp);
-
-    while (temp != NULL)
+    if (len == 2)
     {
-        if  (i <= (len + 1) / 2)
-            temp->cost = i;
-        else
-            temp->cost = -(len - i + 2);
-        i++;
-        temp = temp->next;
+        temp->cost = 1;
+        temp->next->cost = 2;
+    }
+    else
+    {
+        while (temp != NULL)
+        {
+            if  (i <= (len + 1) / 2)
+                temp->cost = i;
+            else
+                temp->cost = -(len - i + 2);
+            i++;
+            temp = temp->next;
+        }
     }
 }
 
@@ -47,8 +53,8 @@ int	get_max_cost(t_node **head)
     {
         if (temp->n > max)
         {
-            res = temp->cost;
             max = temp->n;
+            res = temp->cost;
         }
         temp = temp->next;
     }
@@ -58,7 +64,7 @@ int	get_max_cost(t_node **head)
 int	get_min_cost(t_node **head)
 {
     t_node	*temp;
-    int min;
+    int	min;
     int	res;
 
     temp = *head;
@@ -68,8 +74,8 @@ int	get_min_cost(t_node **head)
     {
         if (temp->n < min)
         {
-            res = temp->cost;
             min = temp->n;
+            res = temp->cost;
         }
         temp = temp->next;
     }

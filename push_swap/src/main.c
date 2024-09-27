@@ -6,7 +6,7 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 12:57:10 by weast             #+#    #+#             */
-/*   Updated: 2024/09/27 12:18:22 by William          ###   ########.fr       */
+/*   Updated: 2024/09/27 14:15:59 by William          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -23,21 +23,20 @@ void	handle_triplets(t_node **stack)
         ft_putstr_fd("error: stack longer than 3", 0);
         return ;
     }
-
-
-
 }
 
 
 void	init_stacks(t_node **a, t_node **b)
 {
-    if (list_len(a) == 2)
+    if (list_len(a) == 3)
     {
-        /* handle_triplets(a); */
+        get_move_cost(a);
+        sort_triplets(a);
         return ;
     }
-    push(a, b, 'b');
-    push(a, b, 'b');
+    /* } */
+    /* push(a, b, 'b'); */
+    /* push(a, b, 'b'); */
     index_list(a);
     index_list(b);
 }
@@ -56,17 +55,19 @@ int main(int argc, char *argv[])
     if (a == NULL || check_for_dup_in_stack(&a))
     {
         ft_putstr_fd("Error\n", 2);
+        free_list(a);
         return (0);
     }
     init_stacks(&a, &b);
     index_list(&a);
     get_move_cost(&a);
-    print_both(&a, &b);
-    push(&a, &b, 'b');
-    push(&a, &b, 'b');
+    /* print_both(&a, &b); */
+    /* push(&a, &b, 'b'); */
+    /* push(&a, &b, 'b'); */
     /* printf("max: %i\n", get_max(&a)); */
 
     print_both(&a, &b);
+    free_list(a);
 
     return 0;
 }

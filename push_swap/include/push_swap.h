@@ -47,6 +47,7 @@ int	get_max(t_node **head);
 int	get_min(t_node **head);
 
 /* Declarations from main.c */
+void	handle_triplets(t_node **stack);
 void	init_stacks(t_node **a, t_node **b);
 int main(int argc, char *argv[]);
 
@@ -55,6 +56,7 @@ t_node	*generate_node(int n);
 void	append_node(t_node **head, int n);
 int	list_len(t_node **head);
 void	index_list(t_node **head);
+void	free_list(t_node *head);
 
 /* Declarations from printing.c */
 void	print_stack(t_node **head);
@@ -63,6 +65,11 @@ void	print_both(t_node **a, t_node **b);
 
 /* Declarations from cost_calculator.c */
 void	get_move_cost(t_node **head);
+int	get_max_cost(t_node **head);
+int	get_min_cost(t_node **head);
+
+/* Declarations from algo.c */
+void	sort_triplets(t_node **stack);
 
 /* Declarations from movements.c */
 char	*swap(t_node **stack, char stack_name);

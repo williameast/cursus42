@@ -6,7 +6,7 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 15:38:24 by weast             #+#    #+#             */
-/*   Updated: 2024/09/25 16:40:02 by weast            ###   ########.fr       */
+/*   Updated: 2024/09/27 14:23:51 by William          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -46,10 +46,16 @@ t_node	*get_int_from_str(char *str)
     {
         nb = ft_atoi(res[i]);
         if ((nb == 0 && res[i][0] != '0'))
+        {
+            free(res[i]);
+            free(res);
             return NULL;
+        }
         append_node(&stack_a, nb);
+        free(res[i]);
         i++;
     }
+    free(res);
     return (stack_a);
 }
 

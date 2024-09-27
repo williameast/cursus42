@@ -6,7 +6,7 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 12:40:34 by weast             #+#    #+#             */
-/*   Updated: 2024/09/26 12:28:11 by William          ###   ########.fr       */
+/*   Updated: 2024/09/27 14:13:33 by William          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -69,5 +69,17 @@ void	index_list(t_node **head)
         temp->index = i;
         temp = temp->next;
         i++;
+    }
+}
+
+void	free_list(t_node *head)
+{
+    t_node	*temp;
+
+    while (head != NULL)
+    {
+        temp = head;
+        head = head->next;
+        free(temp);
     }
 }
