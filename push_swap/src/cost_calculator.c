@@ -6,7 +6,7 @@
 /*   By: William <weast@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 16:00:03 by William           #+#    #+#             */
-/*   Updated: 2024/09/26 23:21:16 by William          ###   ########.fr       */
+/*   Updated: 2024/09/27 12:24:44 by William          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,50 @@ void	get_move_cost(t_node **head)
         if  (i <= (len + 1) / 2)
             temp->cost = i;
         else
-            temp->cost = len - i + 2;
+            temp->cost = -(len - i + 2);
         i++;
-        /* if  (len % 2 == 0) */
-        /*     temp->cost = i; */
         temp = temp->next;
     }
+}
+
+int	get_max_cost(t_node **head)
+{
+    t_node	*temp;
+    int max;
+    int	res;
+
+    temp = *head;
+    max = temp->n;
+    res = temp->cost;
+    while (temp != NULL)
+    {
+        if (temp->n > max)
+        {
+            res = temp->cost;
+            max = temp->n;
+        }
+        temp = temp->next;
+    }
+    return (res);
+}
+
+int	get_min_cost(t_node **head)
+{
+    t_node	*temp;
+    int min;
+    int	res;
+
+    temp = *head;
+    min = temp->n;
+    res = temp->cost;
+    while (temp != NULL)
+    {
+        if (temp->n < min)
+        {
+            res = temp->cost;
+            min = temp->n;
+        }
+        temp = temp->next;
+    }
+    return (res);
 }

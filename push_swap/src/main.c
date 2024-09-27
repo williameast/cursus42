@@ -6,13 +6,24 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 12:57:10 by weast             #+#    #+#             */
-/*   Updated: 2024/09/26 23:34:10 by William          ###   ########.fr       */
+/*   Updated: 2024/09/27 12:18:22 by William          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
 
 void	handle_triplets(t_node **stack)
 {
+    if (is_ascending(stack))
+    {
+        ft_putstr_fd("stack a is sorted.", 0);
+        return ;
+    }
+    if (list_len(stack) != 2)
+    {
+        ft_putstr_fd("error: stack longer than 3", 0);
+        return ;
+    }
+
 
 
 }
@@ -20,11 +31,15 @@ void	handle_triplets(t_node **stack)
 
 void	init_stacks(t_node **a, t_node **b)
 {
-    if (list_len(&a) == 2)
-        handle_triplets(a);
-    index_list(&a);
-    index_list(&b);
-
+    if (list_len(a) == 2)
+    {
+        /* handle_triplets(a); */
+        return ;
+    }
+    push(a, b, 'b');
+    push(a, b, 'b');
+    index_list(a);
+    index_list(b);
 }
 
 int main(int argc, char *argv[])
