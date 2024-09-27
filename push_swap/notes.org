@@ -93,7 +93,6 @@ CLOSED: [2024-09-23 Mon 16:11]
 CLOSED: [2024-09-23 Mon 17:41]
 *** DONE check ints are under limit
 CLOSED: [2024-09-23 Mon 16:44]
-<<<<<<< HEAD
 *** DONE handle case when input is a single argument in quotes.
 ** DONE implement the  moves
 CLOSED: [2024-09-25 Wed 15:37]
@@ -144,7 +143,21 @@ we have 1 do nothing state, 3 do one thing states, and 2 do 2 thing states.
          3 1 2 -> 1 2 3
 
                -> 1 2 3
+#+end_quote
 
+
+#+begin_quote
+      sa       rra
+
+3 2 1 -> 2 3 1 -> 1 2 3
+
+      ra       sa
+1 3 2 -> 2 1 3 -> 1 2 3
+
+               ra
+         3 1 2 -> 1 2 3
+
+               -> 1 2 3
 #+end_quote
 ** TODO implement operations assuming input is 3 minimum!
 * TODO create a list of the moves predicted
@@ -170,19 +183,3 @@ number   cost
 5         2
 6         1
 #+end_quote
-=======
-*** TODO handle case when input is a single argument in quotes.
-** TODO handle minimum input edge cases (less than 3 numbers etc)
-** TODO implement operations assuming input is 3 minimum!
-*** DONE swap
-CLOSED: [2024-09-23 Mon 18:21]
-*** TODO push
-*** TODO rotate
-*** TODO reverse_rotate
-** TODO implement the double moves
-*** TODO rr
-*** TODO ss
-*** TODO pp
-*** TODO rrr
-** TODO
->>>>>>> b8a5696 (push swap!)

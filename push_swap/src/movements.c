@@ -6,13 +6,13 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 17:47:11 by weast             #+#    #+#             */
-/*   Updated: 2024/09/26 21:02:55 by William          ###   ########.fr       */
+/*   Updated: 2024/09/27 15:20:07 by William          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-char	*swap(t_node **stack, char stack_name)
+char	*swap(t_node **stack, char stack_name) // 0
 {
     int	temp;
 
@@ -29,7 +29,7 @@ char	*swap(t_node **stack, char stack_name)
         return("sb");
 }
 
-char	*rotate(t_node **stack, char stack_name)
+char	*rotate(t_node **stack, char stack_name) // 1
 {
     t_node *first;
     t_node *second;
@@ -52,7 +52,7 @@ char	*rotate(t_node **stack, char stack_name)
         return("rb");
 }
 
-char	*reverse_rotate(t_node **stack, char stack_name)
+char	*reverse_rotate(t_node **stack, char stack_name) //-1
 {
     t_node *second_last;
     t_node *last;
@@ -76,7 +76,7 @@ char	*reverse_rotate(t_node **stack, char stack_name)
         return("rrb");
 }
 
-char	*push(t_node **src_stack, t_node **dest_stack, char stack_name)
+char	*push(t_node **src_stack, t_node **dest_stack, char stack_name) //2
 {
     t_node *first;
 

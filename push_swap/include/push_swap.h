@@ -6,11 +6,7 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 12:38:00 by weast             #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2024/09/26 17:49:04 by William          ###   ########.fr       */
-=======
-/*   Updated: 2024/09/23 17:53:02 by weast            ###   ########.fr       */
->>>>>>> b8a5696 (push swap!)
+/*   Updated: 2024/09/27 15:50:07 by William          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H_
@@ -31,6 +27,13 @@ typedef struct s_node
     int	cost;
     struct s_node	*next;
 }	t_node;
+
+typedef struct s_moves
+{
+    int	*moves;
+    int	size;
+    int	capacity;
+}	t_moves;
 
 /* declarations */
 /* Declarations from sanitize.c */

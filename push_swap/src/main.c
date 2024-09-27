@@ -6,7 +6,7 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 12:57:10 by weast             #+#    #+#             */
-/*   Updated: 2024/09/27 14:28:05 by William          ###   ########.fr       */
+/*   Updated: 2024/09/27 14:33:25 by William          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -35,9 +35,8 @@ void	init_stacks(t_node **a, t_node **b)
         sort_triplets(a);
         return ;
     }
-    /* } */
-    /* push(a, b, 'b'); */
-    /* push(a, b, 'b'); */
+    push(a, b, 'b');
+    push(a, b, 'b');
     index_list(a);
     index_list(b);
 }
