@@ -6,7 +6,7 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 12:57:10 by weast             #+#    #+#             */
-/*   Updated: 2024/09/28 13:57:27 by William          ###   ########.fr       */
+/*   Updated: 2024/09/28 14:27:12 by William          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -46,29 +46,28 @@ t_moves	*simulate_moves(t_node **sim_a)
 
     sim_b = NULL;
     sim_seq = init_movseq(50);
-    get_move_cost(sim_a);
     len = list_len(sim_a);
-    while (len > 1)
+    while (len > 0)
 	{
+        get_move_cost(sim_a);
         max_cost = get_max_cost(sim_a);
-        if (max_cost > 1)
-            while (max_cost != 2)
-            {
-                apply_single_move(sim_a, &sim_b, 6);
-                add_move(sim_seq, 6);
-                max_cost--;
-            }
-        else
-            while (max_cost != -1)
-            {
-                if (max_cost == -1)
-                    max_cost = -max_cost;
-                apply_single_move(sim_a, &sim_b, 9);
-                add_move(sim_seq, 9);
-                max_cost++;
-            }
+        while (max_cost > 1)
+        {
+            apply_single_move(sim_a, &sim_b, 6);
+            add_move(sim_seq, 6);
+            get_move_cost(sim_a);
+            max_cost = get_max_cost(sim_a);
+        }
+        while (max_cost <= -1)
+        {
+            apply_single_move(sim_a, &sim_b, 9);
+            add_move(sim_seq, 9);
+            get_move_cost(sim_a);
+            max_cost = get_max_cost(sim_a);
+        }
         apply_single_move(sim_a, &sim_b, 4);
         add_move(sim_seq, 4);
+        len--;
     }
     print_both(sim_a, &sim_b);
     return (sim_seq);
@@ -79,9 +78,11 @@ int	main(int argc, char *argv[])
     t_node	*a;
     t_node	*b;
     t_moves *seq;
+    t_node	*sim_a;
 
     a = NULL;
     b = NULL;
+    sim_a = NULL;
     if (argc == 2)
     {
         a = get_int_from_str(argv[1]);
@@ -102,7 +103,7 @@ int	main(int argc, char *argv[])
     init_stacks(&a, &b, seq);
     index_list(&a);
     get_move_cost(&a);
-    simulate_moves(&a);
+    simulate_moves(&sim_a);
     /* print_both(&a, &b); */
     /* push(&a, &b, 'b'); */
     /* push(&a, &b, 'b'); */
