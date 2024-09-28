@@ -6,7 +6,7 @@
 /*   By: William <weast@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 18:08:50 by William           #+#    #+#             */
-/*   Updated: 2024/09/27 12:08:10 by William          ###   ########.fr       */
+/*   Updated: 2024/09/27 21:13:50 by William          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -69,4 +69,12 @@ int	get_min(t_node **head)
         temp = temp->next;
     }
     return (min);
+}
+
+int	ft_abs(int n)
+{
+    if (n < 0)
+        return (-n);
+    else
+        return (n);
 }

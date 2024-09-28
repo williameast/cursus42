@@ -6,40 +6,36 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 15:14:39 by weast             #+#    #+#             */
-/*   Updated: 2024/09/25 15:21:27 by weast            ###   ########.fr       */
+/*   Updated: 2024/09/27 17:01:30 by William          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-char	*swap_both(t_node **a, t_node **b)
+void	swap_both(t_node **a, t_node **b)
 {
-    swap(a, 'a');
-    swap(b, 'b');
-    return ("ss");
+    swap(a);
+    swap(b);
 }
 
-char	*rotate_both(t_node **a, t_node **b)
+void	rotate_both(t_node **a, t_node **b)
 {
-    rotate(a, 'a');
-    rotate(b, 'b');
-    return("rr");
+    rotate(a);
+    rotate(b);
 }
 
-char	*reverse_rotate_both(t_node **a, t_node **b)
+void	reverse_rotate_both(t_node **a, t_node **b)
 {
-    reverse_rotate(a, 'a');
-    reverse_rotate(b, 'b');
-    return("rrr");
+    reverse_rotate(a);
+    reverse_rotate(b);
 }
 
-char	*push_both(t_node **a, t_node **b)
+void	push_both(t_node **a, t_node **b)
 {
     int	temp;
     if (*a == NULL && *b == NULL)
-        return (0);
+        return ;
     temp = (*a)->n;
     (*a)->n = (*b)->n;
     (*b)->n = temp;
-    return ("pp");
 }

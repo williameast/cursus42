@@ -6,7 +6,7 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 11:32:12 by weast             #+#    #+#             */
-/*   Updated: 2024/09/27 16:22:55 by William          ###   ########.fr       */
+/*   Updated: 2024/09/27 20:51:10 by William          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,15 +73,30 @@ void	print_both(t_node **a, t_node **b)
     }
 }
 
+/* ************************************************************************** */
+/*                                                                            */
+/*sa 0 |sb 1 |ss 2 |pa 3 |pb 4 |pp 5 |ra 6 |rb 7 |rr 8 |rra 9 |rrb 10 |rrr 11 */
+/*                                                                            */
+/* ************************************************************************** */
+
 void	print_movseq(t_moves *seq)
 {
     int	i;
     i = 0;
-    char *movenames[] = {"sa", "sb", "ss", "pa", "pb", "ra", "rb", "rr", "rra", "rrb"};
+    char *movenames[] = {"sa", "sb", "ss", "pa", "pb", "pp", "ra", "rb", "rr", "rra", "rrb", "rrr"};
 
+    printf("%s\n", "MOVSEQ");
     while (i < seq->size)
     {
         ft_putstr_fd(movenames[seq->moves[i]], 0);
         ft_putstr_fd("\n", 0);
+        i++;
     }
+    printf("MOVSEQ completed in %i moves.\n", i);
+}
+
+char	*debug_decode_movseq(int move)
+{
+    char *movenames[] = {"sa", "sb", "ss", "pa", "pb", "pp", "ra", "rb", "rr", "rra", "rrb", "rrr"};
+    return (movenames[move]);
 }

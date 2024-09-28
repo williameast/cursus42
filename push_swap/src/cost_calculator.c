@@ -6,7 +6,7 @@
 /*   By: William <weast@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/26 16:00:03 by William           #+#    #+#             */
-/*   Updated: 2024/09/27 14:07:03 by William          ###   ########.fr       */
+/*   Updated: 2024/09/27 17:38:44 by William          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ int	get_max_cost(t_node **head)
     int max;
     int	res;
 
+    get_move_cost(head);
     temp = *head;
     max = temp->n;
     res = temp->cost;
@@ -67,6 +68,7 @@ int	get_min_cost(t_node **head)
     int	min;
     int	res;
 
+    get_move_cost(head);
     temp = *head;
     min = temp->n;
     res = temp->cost;
