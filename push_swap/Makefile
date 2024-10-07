@@ -38,10 +38,10 @@ re:	fclean all clean
 
 OS = $(shell uname)
 
-size ?= 10
+size ?= 100
 
 ifeq ($(OS),Linux)
-CHECKER = valgrind ./push_swap $(ARG) | ./checker_linux $(ARG)
+CHECKER = ./push_swap $(ARG) | ./checker_linux $(ARG)
 else
 CHECKER = ./push_swap $(ARG) | ./checker_Mac $(ARG)
 endif
