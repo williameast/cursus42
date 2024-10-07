@@ -6,7 +6,7 @@
 /*   By: William <weast@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 12:28:01 by William           #+#    #+#             */
-/*   Updated: 2024/10/07 14:06:41 by weast            ###   ########.fr       */
+/*   Updated: 2024/10/07 18:14:15 by weast            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,83 +86,48 @@ void	max_sort(t_node **a, t_moves *seq)
 	}
 }
 
-int	*segment(t_node **a, int segments)
+t_moves	*bin_sort(t_node **a, int segments)
 {
-	int	segment_size;
-	int	remainder;
-	int len;
+	int	*bins;
+	int bin_count;
+	int	*arr;
+	int	len;
 	int	i;
+	int	j;
+	t_node *temp;
+	t_node	*b;
+	t_moves *seq;
 
-	t_node	*temp;
-
-	len = list_len(a);
-	index_list(a);
-	segment_size = len / segments;
-	remainder = len % segments;
-
-
-	while (len > 0)
-	{
-		while(i < segment_size && temp != NULL)
-		{
-
-
-		}
-
-
-	}
+	if (is_ascending(a))
+		return (NULL);
+	seq = init_movseq(50);
+	i = 0;
+	j = 0;
 	temp = *a;
+	b = NULL;
+	len = list_len(a);
+	arr = get_sorted_array_from_list(a);
+	bins = get_segment_max_values(arr, segments, len, &bin_count);
+	free(arr);
 
-	while (temp != NULL)
-
-
-
-
-
-
-
-
-
+	while (j < bin_count)
+	{
+		while (i < len)
+		{
+			if (temp->n <= bins[j])
+			{
+				apply_single_move(a, &b, 4);
+				add_move(seq, 4);
+			}
+			else
+			{
+				apply_single_move(a, &b, 6);
+				add_move(seq, 6);
+			}
+			temp = temp->next;
+		}
+		j++;
+		len  = list_len(&temp);
+	}
+	return (seq);
 }
-
-t_moves	*block_sort(t_node **a)
-{
-
-
-}
-
-
-/* t_moves	*rotate_sort(t_node **a) */
-/* { */
-/* 	t_moves *seq; */
-/* 	t_node	*b; */
-/* 	int	len; */
-/* 	int	i; */
-
-/* 	b = NULL; */
-/* 	i = 0; */
-/* 	seq = init_movseq(50); */
-/* 	if (is_ascending(a)) */
-/* 		return (NULL); */
-/* 	len = list_len(a); */
-/* 	if (len == 2) */
-/* 	{ */
-/* 		get_move_cost(a); */
-/* 		sort_triplets(get_max_cost(a), get_min_cost(a), seq); */
-/* 		return (seq); */
-/* 	} */
-/* 	else */
-/* 	{ */
-/* 		while (i++ < 3) */
-/* 		{ */
-/* 			apply_single_move(a, &b, 4); */
-/* 			add_move(seq, 4); */
-/* 		} */
-
-
-/* 	} */
-
-
-
-
-/* } */

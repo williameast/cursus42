@@ -6,7 +6,7 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 12:57:10 by weast             #+#    #+#             */
-/*   Updated: 2024/10/02 14:52:02 by William          ###   ########.fr       */
+/*   Updated: 2024/10/07 18:15:10 by weast            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
@@ -85,6 +85,8 @@ int	main(int argc, char *argv[])
     t_node	*b;
     t_node	*sim_a;
     t_moves *seq;
+    /* int	*arr; */
+    /* int	result_len = 0; */
 
     a = NULL;
     b = NULL;
@@ -105,10 +107,9 @@ int	main(int argc, char *argv[])
         free_list(sim_a);
         return (0);
     }
-    seq = simulate_moves(&sim_a);
+    seq = bin_sort(&a, 3);
     print_movseq(seq);
-    apply_movseq(&a, &b, seq);
-    /* print_both(&a, &b); */
+    /* apply_movseq(&a, &b, seq); */
     free_list(sim_a);
     free_list(a);
     free_list(b);
