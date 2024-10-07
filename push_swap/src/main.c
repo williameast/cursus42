@@ -6,11 +6,10 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 12:57:10 by weast             #+#    #+#             */
-/*   Updated: 2024/09/28 13:57:27 by William          ###   ########.fr       */
+/*   Updated: 2024/10/02 14:52:02 by William          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "../include/push_swap.h"
-#include <stdio.h>
 
 void	handle_triplets(t_node **stack)
 {
@@ -31,7 +30,6 @@ void	init_stacks(t_node **a, t_node **b, t_moves *seq)
     if (is_ascending(a))
         return ;
     get_move_cost(a);
-    max_sort(a, seq);
     /* print_movseq(seq); */
     apply_movseq(a, b, seq);
     return ;
@@ -42,35 +40,42 @@ t_moves	*simulate_moves(t_node **sim_a)
     t_node	*sim_b;
     t_moves	*sim_seq;
     int	len;
-    int	max_cost;
+    int	min_cost;
 
+    if (is_ascending(sim_a))
+        return (NULL);
     sim_b = NULL;
     sim_seq = init_movseq(50);
-    get_move_cost(sim_a);
     len = list_len(sim_a);
-    while (len > 1)
+    while (len > 0)
 	{
-        max_cost = get_max_cost(sim_a);
-        if (max_cost > 1)
-            while (max_cost != 2)
+        get_move_cost(sim_a);
+        min_cost = get_min_cost(sim_a);
+        while (min_cost > 1)
+        {
+            apply_single_move(sim_a, &sim_b, 6);
+            add_move(sim_seq, 6);
+            get_move_cost(sim_a);
+            min_cost = get_min_cost(sim_a);
+        }
+        while (min_cost <= -1)
             {
-                apply_single_move(sim_a, &sim_b, 6);
-                add_move(sim_seq, 6);
-                max_cost--;
-            }
-        else
-            while (max_cost != -1)
-            {
-                if (max_cost == -1)
-                    max_cost = -max_cost;
                 apply_single_move(sim_a, &sim_b, 9);
                 add_move(sim_seq, 9);
-                max_cost++;
+                min_cost = get_min_cost(sim_a);
+                min_cost++;
             }
         apply_single_move(sim_a, &sim_b, 4);
         add_move(sim_seq, 4);
+        len--;
     }
-    print_both(sim_a, &sim_b);
+    len = list_len(&sim_b);
+    while (len > 0)
+    {
+        apply_single_move(sim_a, &sim_b, 3);
+        add_move(sim_seq, 3);
+        len--;
+    }
     return (sim_seq);
 }
 
@@ -78,6 +83,7 @@ int	main(int argc, char *argv[])
 {
     t_node	*a;
     t_node	*b;
+    t_node	*sim_a;
     t_moves *seq;
 
     a = NULL;
@@ -96,19 +102,15 @@ int	main(int argc, char *argv[])
     {
         ft_putstr_fd("Error\n", 2);
         free_list(a);
+        free_list(sim_a);
         return (0);
     }
-    seq = init_movseq(50);
-    init_stacks(&a, &b, seq);
-    index_list(&a);
-    get_move_cost(&a);
-    simulate_moves(&a);
+    seq = simulate_moves(&sim_a);
+    print_movseq(seq);
+    apply_movseq(&a, &b, seq);
     /* print_both(&a, &b); */
-    /* push(&a, &b, 'b'); */
-    /* push(&a, &b, 'b'); */
-    /* printf("max: %i\n", get_max(&a)); */
-
-    /* print_both(&a, &b); */
+    free_list(sim_a);
     free_list(a);
+    free_list(b);
     return 0;
 }

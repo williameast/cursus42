@@ -6,7 +6,7 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 12:38:00 by weast             #+#    #+#             */
-/*   Updated: 2024/09/27 15:50:07 by William          ###   ########.fr       */
+/*   Updated: 2024/10/02 12:08:50 by William          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef PUSH_SWAP_H_
@@ -25,6 +25,7 @@ typedef struct s_node
     int	n;
     int	index;
     int	cost;
+    int	distance;
     struct s_node	*next;
 }	t_node;
 

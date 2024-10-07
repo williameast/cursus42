@@ -6,7 +6,7 @@
 /*   By: weast <weast@student.42berlin.de>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/25 11:32:12 by weast             #+#    #+#             */
-/*   Updated: 2024/09/27 20:51:10 by William          ###   ########.fr       */
+/*   Updated: 2024/10/02 14:52:10 by William          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,14 +85,14 @@ void	print_movseq(t_moves *seq)
     i = 0;
     char *movenames[] = {"sa", "sb", "ss", "pa", "pb", "pp", "ra", "rb", "rr", "rra", "rrb", "rrr"};
 
-    printf("%s\n", "MOVSEQ");
+    /* printf("%s\n", "MOVSEQ"); */
     while (i < seq->size)
     {
         ft_putstr_fd(movenames[seq->moves[i]], 0);
         ft_putstr_fd("\n", 0);
         i++;
     }
-    printf("MOVSEQ completed in %i moves.\n", i);
+    /* printf("MOVSEQ completed in %i moves.\n", i); */
 }
 
 char	*debug_decode_movseq(int move)
