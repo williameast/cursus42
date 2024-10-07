@@ -6,7 +6,7 @@
 /*   By: William <weast@student.42berlin.de>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/27 12:28:01 by William           #+#    #+#             */
-/*   Updated: 2024/10/02 19:38:14 by William          ###   ########.fr       */
+/*   Updated: 2024/10/07 14:06:41 by weast            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,9 +90,35 @@ int	*segment(t_node **a, int segments)
 {
 	int	segment_size;
 	int	remainder;
+	int len;
+	int	i;
+
+	t_node	*temp;
+
+	len = list_len(a);
 	index_list(a);
-	segment_size = list_len(a) / segments;
-	remainder =
+	segment_size = len / segments;
+	remainder = len % segments;
+
+
+	while (len > 0)
+	{
+		while(i < segment_size && temp != NULL)
+		{
+
+
+		}
+
+
+	}
+	temp = *a;
+
+	while (temp != NULL)
+
+
+
+
+
 
 
 

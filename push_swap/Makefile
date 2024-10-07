@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror -g
 LIBFT_DIR = libft
 LIBFT = ./libft/libft.a
 RM = rm -rf
-SRCS = main.c printing.c movements.c list_mgmt.c double_moves.c sanitize.c cost_calculator.c utils.c algo.c moveseq.c
+SRCS = main.c printing.c movements.c list_mgmt.c double_moves.c sanitize.c cost_calculator.c utils.c algo.c moveseq.c segment.c
 SRC	= $(addprefix ./src/,$(SRCS))
 OBJ = $(SRC:.c=.o)
 
